@@ -20,9 +20,9 @@
     }while($var1<6);
     echo "Hemos salido del bucle <br>";
     for($i=0;$i<6;$i++){
-        echo "Estamos ejecutando el codigo del bucle for <br>";
+        echo "Estamos ejecutando el codigo del bucle for, estamos en i= $i <br>";
     }
-    echo "Hemos salido del bucle <br>";
+    echo "Hemos salido del bucle <br>";     //si usamos continue se salta lo que queda de bucle y sigue con la siguiente vuelta.
 
     ?>
 </body>
