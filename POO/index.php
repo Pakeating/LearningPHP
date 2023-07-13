@@ -10,7 +10,7 @@
     class Coche{
         var $ruedas;
         var $color;
-        private $motor;
+        private $motor;             //Modificador: Por defecto es public. Puede ponerse tambien private o protected, segun necesidad.
         function __construct() {   //CONSTRUCTOR DEBE SER ASI, SE CAMBIO EN ALGUN MOMENTO. Antes era como en java.
             $this->ruedas=4;
             $this->color="rojo";
