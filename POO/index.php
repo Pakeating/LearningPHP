@@ -10,13 +10,13 @@
     class Coche{
         var $ruedas;
         var $color;
-        var $motor;
+        private $motor;
         function __construct() {   //CONSTRUCTOR DEBE SER ASI, SE CAMBIO EN ALGUN MOMENTO. Antes era como en java.
             $this->ruedas=4;
             $this->color="rojo";
             $this->motor=1600;
-        }
-        function arrancar(){
+        }                           //La herencia se expresa mediante ClaseHija extend ClasePadre
+        function arrancar(){        //Mediante parent:: podemos acceder a los atributos y metodos de la clase padre.
             echo"estoy arrancando <br>";
         }
         function girar(){
@@ -30,8 +30,8 @@
             $this->color=$color_coche;
             echo "El color de este coche es: ". $this->color."<br>";
         }
-        function getRuedas(){
-            return $this->ruedas;
+        function getMotor(){
+            return $this->motor;
         }
     }
 
@@ -41,7 +41,7 @@
     $mazda->girar();
     $renault->frenar();
     echo "el numero de ruedas es: ". $mazda->ruedas."<br>";
-    echo $mazda->motor."<br>";
+    echo $mazda->getMotor()."<br>";
     
     $mazda->establece_color("Amarillo");
     ?>
