@@ -29,11 +29,19 @@
     $query="SELECT * FROM ARTÍCULOS WHERE PAISORIGEN='ESPAÑA'; ";
 
     $resultados=mysqli_query($conexion, $query);    //devuelve un ResultSet
-    while($fila=mysqli_fetch_row($resultados)){ //array con el primer resultado del ResultSet. Cada vez que se ejecuta fetch_row cambia al siguiente registro.         
+    /*while($fila=mysqli_fetch_row($resultados)){ //array con el primer resultado del ResultSet. Cada vez que se ejecuta fetch_row cambia al siguiente registro.         
     echo "<table> <tr><td>".$fila[0]. "</td><td> ".$fila[1]."</td><td>".$fila[2]. "</td><td>".$fila[3]."</td><td>".$fila[4]."</td></tr></table>";
+    }*/
+    while($fila=mysqli_fetch_array($resultados,MYSQLI_ASSOC)){  //al hacer esto usamos un array asociativo en lugar de uno indexado
+        echo"<table><tr><td>";
+        echo$fila['SECCION']."</td><td>";
+        echo$fila['NOMBREARTICULO']."</td><td>";
+        echo$fila['PAISORIGEN']."</td><tr></table>";
     }
     mysqli_close($conexion);
-
+    //Tenemos y podemos usar dos caracteres comodín en PHP/SQL:
+    // _ sustituye a un solo caracter
+    // % sustituye a una cadena
 
     ?>
 </body>
