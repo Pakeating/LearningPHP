@@ -4,28 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        table{
+            width_50%;
+            border:1px dotted #FF0000;
+            margin: auto;
+        }
+    </style>
+
 </head>
 <body>
     <?php
     require("ConectionDB.php");
-    $db_host="localhost";
-    $db_nombre="pruebas";
-    $db_usuario="root";
-    $db_contra="francisco";
+  
 
     $conexion=mysqli_connect($db_host,$db_usuario,$db_contra);//$db_nombre se puede añadir detras y no hacce falta hacer mysqli_select_db luego
     if(mysqli_connect_errno()){
         echo "Error conectando a la DB";
         exit();
     }
-    mysqli_select_db($conexion, $db_nombre);
+    mysqli_select_db($conexion, $db_nombre) or die ("DB no encontrada");
     mysqli_set_charset($conexion,"utf8");
 
-    $query="SELECT * FROM ARTÍCULOS";
+    $query="SELECT * FROM ARTÍCULOS WHERE PAISORIGEN='ESPAÑA'; ";
 
     $resultados=mysqli_query($conexion, $query);    //devuelve un ResultSet
     while($fila=mysqli_fetch_row($resultados)){ //array con el primer resultado del ResultSet. Cada vez que se ejecuta fetch_row cambia al siguiente registro.         
-    echo $fila[0]. ", ".$fila[1].", ".$fila[2]. ", ".$fila[3].", ".$fila[4]."<br>";
+    echo "<table> <tr><td>".$fila[0]. "</td><td> ".$fila[1]."</td><td>".$fila[2]. "</td><td>".$fila[3]."</td><td>".$fila[4]."</td></tr></table>";
     }
     mysqli_close($conexion);
 
