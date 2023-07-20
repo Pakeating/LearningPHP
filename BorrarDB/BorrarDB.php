@@ -7,14 +7,11 @@
 </head>
 <body>
     <?php
-    $seccion=$_GET["seccion"];
-    $nomart=$_GET["n_art"];
-    $precio=$_GET["precio"];
-    $fecha=$_GET["fecha"];
-    $origen=$_GET["p_orig"];
+    $codart=$_GET["codart"];
+   
     require("ConectionDB.php");
 
-    $conexion=mysqli_connect($db_host,$db_usuario,$db_contra);//$db_nombre se puede añadir detras y no hacce falta hacer mysqli_select_db luego
+    $conexion=mysqli_connect($db_host,$db_usuario,$db_contra);
     if(mysqli_connect_errno()){
         echo "Error conectando a la DB";
         exit();
@@ -22,13 +19,14 @@
     mysqli_select_db($conexion, $db_nombre) or die ("DB no encontrada");
     mysqli_set_charset($conexion,"utf8");
 
-    $query="INSERT INTO artículos (SECCION, NOMBREARTICULO, PRECIO, FECHA, PAISORIGEN) VALUES('$seccion','$nomart','$precio','$fecha','$origen');";
+    $query="DELETE FROM artículos WHERE codarticulo=$codart;";
 
     $resultados=mysqli_query($conexion, $query); 
     if($resultados==false){
-        echo"error en la insercion";
+        echo"error eliminando el artículo";
     }else{
-        echo "insertado correctamente";
+        echo "eliminado correctamente el articulo con codigo $codart <br>";
+        echo mysqli_affected_rows($conexion). " registros afectados.";
     }
     mysqli_close($conexion);
      ?>

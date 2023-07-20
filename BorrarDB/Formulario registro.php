@@ -31,41 +31,21 @@ body{
 
 <body>
 <h1>Registro de Artículos</h1>
-<form name="form1" method="get" action="EscribirDB.php">
+<form name="form1" method="get" action="BorrarDB.php">
   <table border="0" align="center">
     
     <tr>
-      <td>Sección</td>
-      <td><label for="seccion"></label>
-      <input type="text" name="seccion" id="seccion"></td>
+      <td>Codigo del Artículo</td>
+      <td><label for="codart"></label>
+      <input type="text" name="codart" id="codart"></td>
     </tr>
-    <tr>
-      <td>Nombre artículo</td>
-      <td><label for="n_art"></label>
-      <input type="text" name="n_art" id="n_art"></td>
-    </tr>
-    <tr>
-      <td>Precio</td>
-      <td><label for="precio"></label>
-      <input type="text" name="precio" id="precio"></td>
-    </tr>
-    <tr>
-      <td>Fecha</td>
-      <td><label for="fecha"></label>
-      <input type="text" name="fecha" id="fecha"></td>
-    </tr>
-    
-    <tr>
-      <td>País de Origen</td>
-      <td><label for="p_orig"></label>
-      <input type="text" name="p_orig" id="p_orig"></td>
-    </tr>
+
     <tr>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
     </tr>
     <tr>
-      <td align="center"><input type="submit" name="enviar" id="enviar" value="Enviar"></td>
+      <td align="center"><input type="submit" name="eliminar" id="eliminar" value="Eliminar de la Base de Datos"></td>
       <td align="center"><input type="reset" name="Borrar" id="Borrar" value="Borrar"></td>
     </tr>
   </table>
