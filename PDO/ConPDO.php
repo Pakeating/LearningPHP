@@ -7,6 +7,7 @@
 </head>
 <body>
     <?php
+    
     try{
     $base=new PDO("mysql:host=localhost;dbname=pruebas","root","francisco");
     echo"Conexion OK";

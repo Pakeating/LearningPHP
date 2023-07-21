@@ -16,7 +16,7 @@
     $pog=$_GET["pog"];
     try{
     $base=new PDO("mysql:host=localhost;dbname=pruebas","root","francisco");
-    $base->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $base->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);//con esto le indicamos que genere objetos excepcion para poderlos capturar posteriormente
     $sql="SELECT NOMBREARTICULO,SECCION,PRECIO, PAISORIGEN FROM ARTÍCULOS WHERE SECCION= :SECC AND PAISORIGEN= :POG";
     $resultado=$base->prepare($sql);
     $resultado->execute(array(":SECC"=>$seccion, ":POG"=>$pog));
