@@ -6,14 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
-    try{
-    $base=new PDO("mysql:host=localhost;dbname=pruebas","root","francisco");
-    echo"Conexion OK";
-    }catch(Exception $e){
-        die("ERROR: ".$e->GetMessage());
-    }
-
-    ?>
+    <form action="BusquedaPDO.php" method="get">
+        <label>Buscar: <input type="text" name="buscar"></label>
+        <input type="submit" name="enviando" value="Dale!">
+    </form>
 </body>
 </html>
