@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-    $busqueda=$_GET["buscar"];
+    
 
 
     require("ConectionDB.php");
@@ -20,6 +20,7 @@
     }
     mysqli_select_db($conexion, $db_nombre) or die ("DB no encontrada");
     mysqli_set_charset($conexion,"utf8");
+    $busqueda=mysqli_real_escape_string($conexion,$_GET["buscar"]); //real escape string nos permite evitar la inyeccion sql
 
     $query="SELECT * FROM ARTÍCULOS WHERE NOMBREARTICULO LIKE'%$busqueda%'; ";
 
