@@ -22,7 +22,7 @@
         if($registros!=0){
             session_start();
             $_SESSION["usuario"]=$_POST["login"];
-            header("location:registered_users.php");
+            header("location:registeredUsers1.php");
         }else{
             header("location:index.html");
         }

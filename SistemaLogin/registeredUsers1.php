@@ -14,11 +14,21 @@
     }
     ?>
     <h1>Bienvenidos Usarios</h1>
+    
     <?php
     echo"Hola: ".$_SESSION["usuario"]."!";
     ?>
+
     <br>
     <p>Pagina solo para Usuarios registrados</p>
+    <table>
+        <tr><td tablespan="2"><p>Otras páginas de usuarios</p></td></tr>
+        <tr><td> <a href="registeredUsers2.php">Pagina 2</a></td><td><a href="registeredUsers3.php">Pagina 3</a></td></tr>
+    </table>
+<br>
+<a href="cerrarSesion.php">CERRAR SESION<a>
 
+   
+    
 </body>
 </html>
