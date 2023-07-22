@@ -29,7 +29,7 @@
     
     <body>
     
-        <form action="InsertarPDO.php" method="post">
+        <form action="BorrarPDO.php" method="post">
         <table><tr>
           <td>
             C. Artículo</td><td><input type="text" name="codart" id="codart"></td></tr>
