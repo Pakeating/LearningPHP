@@ -13,22 +13,18 @@
 
     */
     $codart=$_POST["codart"];
-    $seccion=$_POST["seccion"];
-    $nomart=$_POST["nomart"];
-    $precio=$_POST["precio"];
-    $fecha=$_POST["fecha"];
-    $pog=$_POST["pog"];
+    
     
     try{
     $base=new PDO("mysql:host=localhost;dbname=pruebas","root","francisco");
     $base->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);//con esto le indicamos que genere objetos excepcion para poderlos capturar posteriormente
     
-    $sql="INSERT INTO ARTÍCULOS (CODARTICULO,SECCION, NOMBREARTICULO, FECHA, PAISORIGEN,PRECIO) VALUES (:codart,:seccion,:nomart,:fecha,:pog,:precio)";
+    $sql="DELETE FROM ARTÍCULOS WHERE CODARTICULO=:codart;";
 
     $resultado=$base->prepare($sql);
-    $resultado->execute(array(":codart"=>$codart, ":seccion"=>$seccion, ":nomart"=>$nomart, ":precio"=>$precio, ":fecha"=>$fecha, ":pog"=>$pog));
+    $resultado->execute(array(":codart"=>$codart));
     
-    echo "Registro insertado";
+    echo "Registro eliminado";
 
     $resultado->closeCursor();
 

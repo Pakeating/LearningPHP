@@ -34,24 +34,8 @@
           <td>
             C. Artículo</td><td><input type="text" name="codart" id="codart"></td></tr>
            <tr>
-             <td> Sección </td><td><input type="text" name="seccion" id="seccion"></td></tr>
-           <tr>
-             <td>Nombre Art</td>
-             <td><input type="text" name="nomart" id="nomart"></td>
-           </tr>
-           <tr>
-             <td>Precio</td>
-             <td><input type="text" name="precio" id="precio"></td>
-           </tr>
-           <tr>
-             <td>Fecha </td>
-             <td><input type="text" name="fecha" id="fecha"></td>
-           </tr>
-           <tr>
-             <td>País de Origen</td>
-             <td><input type="text" name="pog" id="pog"></td>
-           </tr>
-           <tr><td colspan="2"> <input type="submit" name="enviando" value="¡Dale!">
+             
+           <tr><td colspan="2"> <input type="submit" name="enviando" value="Eliminar">
         </td></tr></table>
         </form>
     
