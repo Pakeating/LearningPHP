@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-    if(isset($_COOKIE["prueba]"])){
+    if(!isset($_COOKIE["prueba]"])){
     echo $_COOKIE["prueba"];
     }else{
         echo"La cookie no existe";

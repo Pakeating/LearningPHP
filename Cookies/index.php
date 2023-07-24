@@ -7,8 +7,10 @@
 </head>
 <body>
     <?php
-    setcookie("prueba", "informacion de la cookie");
-    
+    setcookie("prueba", "informacion de la cookie",time()+30);//si no damos el tiempo de vida, 
+    //por defecto se borra al cerrar el navegador. time()+30 son 30 segundos
+
+
 
     ?>
 </body>
