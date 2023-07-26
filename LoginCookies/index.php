@@ -43,7 +43,7 @@
                             setcookie("nombreUsuario", $_POST["login"], time()+86400);
                             
                         }
-                        header("location: contenido.html");
+                        header("location: contenido.php");
                     
                     }else{
                     echo"Error: Usuario o contraseña incorrectos";
@@ -60,7 +60,7 @@
         }
     }else{
         
-        include("contenido.html");
+        include("contenido.php");
     } 
     
     

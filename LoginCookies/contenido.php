@@ -6,8 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    
-    
+   <?php 
+   if(isset($_COOKIE["nombreUsuario"])){
+    echo"<h1 align='center'>Hola ".$_COOKIE["nombreUsuario"]." </h1>";
+    }/*else{
+    echo"<h1 align='center'>Hola".$_POST["login"]." </h1>";
+    }*/
+    ?>
     <h2 align="center">Contenido Web</h2>
     <img src="img.png" >
 
