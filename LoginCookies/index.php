@@ -25,8 +25,11 @@
 
         $registros=$resultado->rowCount();
         if($registros!=0){
-            session_start();
-            $_SESSION["usuario"]=$_POST["login"];
+            
+            $autenticado=true;
+            if(isset($_POST["recordar"])){
+                setcookie("nombreUsuario", $_POST["login"], time()+86400);
+            }
            
         }else{
            echo"Error: Usuario o contraseña incorrectos";
@@ -40,8 +43,11 @@
     }
     ?>
     <?php
-    if(!isset($_SESSION["usuario"])){
-        include("formulario.html");
+    
+    if($autenticado==false){
+        if(!isset($_COOKIE["nombreUsuario"])){
+            include("formulario.html");
+        }
     }else{
         echo"Hola ". $_SESSION["usuario"];
         include("contenido.html");
