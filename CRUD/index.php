@@ -12,13 +12,24 @@
 <?php
     //Conectamos con la DB y almacenamos todo en un array de objetos
   include("conexion.php");
+
+  if(isset($_POST["cr"])){
+    $nombre=$_POST["Nom"];
+    $apellido=$_POST["Ape"];
+    $direccion=$_POST["Dir"];
+    $query="INSERT INTO USERDATA (NOMBRE, APELLIDO, DIRECCION) VALUES (:nom, :ape,:dir);";
+    $resultado=$base->prepare($query);
+    $resultado->execute(array(":nom"=>$nombre, ":ape"=>$apellido, ":dir"=>$direccion ));
+    
+  }
+  
   $conexion=$base->query("SELECT * FROM USERDATA");
   $registros=$conexion->fetchAll(PDO::FETCH_OBJ);
-
+  
 ?>
 
 <h1>CRUD<span class="subtitulo">Create Read Update Delete</span></h1>
-
+<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
   <table width="50%" border="0" align="center">
     <tr >
       <td class="primera_fila">Id</td>
@@ -56,6 +67,7 @@
       <td><input type='text' name=' Dir' size='10' class='centrado'></td>
       <td class='bot'><input type='submit' name='cr' id='cr' value='Insertar'></td></tr>    
   </table>
+</form>
 
 <p>&nbsp;</p>
 </body>
