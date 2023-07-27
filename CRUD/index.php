@@ -42,7 +42,8 @@
  
       <td class="bot"><a href="delete.php?ID=<?php echo$persona->ID?>"><input type='button' name='del' id='del' value='Borrar'></a></td>
 
-      <td class='bot'><input type='button' name='up' id='up' value='Actualizar'></a></td>
+      <td class='bot'><a href="editar.php?ID=<?php echo$persona->ID?>& nom=<?php echo$persona->NOMBRE?>
+      & ape=<?php echo$persona->APELLIDO?> & dir=<?php echo$persona->DIRECCION?>"><input type='button' name='up' id='up' value='Actualizar'></a></td>
     </tr> 
     <?php 
       endforeach; //fin del bucle
