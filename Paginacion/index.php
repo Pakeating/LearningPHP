@@ -11,8 +11,18 @@
         $base=new PDO("mysql:host=localhost; dbname=pruebas","root", "francisco");
         $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $base->exec("SET CHARACTER SET UTF8");
+        
+        if(isset($_GET["pagina"])){
+            if($_GET["pagina"]==1){
+                header("location:index.php");
+            }else{
+                $pagina=$_GET["pagina"];
+            }
+        }else{
+            $pagina=1;
+        }
+        
         $tamPagina=3;
-        $pagina=1;
         $empezarDesde=($pagina-1)*$tamPagina;
 
         $sql_total="SELECT NOMBREARTICULO, SECCION, PRECIO, PAISORIGEN FROM ARTÍCULOS WHERE SECCION='DEPORTE'"; 
@@ -38,10 +48,15 @@
 
         }
         
-        
+
     }catch(Exception $e){
         echo "ERROR: ". $e->getMessage();
         echo "Linea: ". $e->getLine();
+    }
+
+
+    for($i=1; $i<=$totalPaginas;$i++){
+        echo "<a href='?pagina= ".$i."'> ".$i."</a>, " ;
     }
 
     ?>
