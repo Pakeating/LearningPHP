@@ -12,6 +12,33 @@
 <?php
     //Conectamos con la DB y almacenamos todo en un array de objetos
   include("conexion.php");
+//------------------------------------------------
+if(isset($_GET["pagina"])){
+  if($_GET["pagina"]==1){
+      header("location:index.php");
+  }else{
+      $pagina=$_GET["pagina"];
+  }
+}else{
+  $pagina=1;
+}
+
+$tamPagina=3;
+$empezarDesde=($pagina-1)*$tamPagina;
+
+$sql_total="SELECT * FROM USERDATA"; 
+$resultado=$base->prepare($sql_total);
+$resultado->execute(array());
+$nfilas=$resultado->rowCount();
+$totalPaginas=ceil($nfilas/$tamPagina);//ceil redondea al alza el numero de paginas
+
+echo"Numero de registros de la consulta: ". $nfilas."<br>";
+echo "Mostramos ".$tamPagina." registros por pagina <br>";
+echo"Mostrando la pagina ". $pagina. " de ". $totalPaginas."<br>";
+
+$resultado->closeCursor();
+
+//-----------------------------------------
 
   if(isset($_POST["cr"])){
     $nombre=$_POST["Nom"];
@@ -23,7 +50,7 @@
     
   }
   
-  $conexion=$base->query("SELECT * FROM USERDATA");
+  $conexion=$base->query("SELECT * FROM USERDATA LIMIT $empezarDesde,$tamPagina");
   $registros=$conexion->fetchAll(PDO::FETCH_OBJ);
   
 ?>
@@ -66,8 +93,16 @@
       <td><input type='text' name='Ape' size='10' class='centrado'></td>
       <td><input type='text' name=' Dir' size='10' class='centrado'></td>
       <td class='bot'><input type='submit' name='cr' id='cr' value='Insertar'></td></tr>    
-  </table>
+      
+      <tr><td><?php
+      for($i=1; $i<=$totalPaginas;$i++){
+      echo "<a href='?pagina= ".$i."'> ".$i."</a>, " ;
+      }?></td></tr>
+    </table>
 </form>
+
+
+
 
 <p>&nbsp;</p>
 </body>
