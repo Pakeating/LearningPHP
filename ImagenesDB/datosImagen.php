@@ -25,7 +25,7 @@ if($tamannoImagen<=1000000){
 require ("Conexion.php");
 $base=Conectar::conexion();
 
-$sql="INSERT INTO ARTÍCULOS (FOTO) VALUES('$nombreImagen')";
+$sql="UPDATE ARTÍCULOS SET FOTO='$nombreImagen' WHERE CODARTICULO=1";
 $resultado=$base->query($sql);
 
 
