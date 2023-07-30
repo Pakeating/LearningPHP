@@ -4,7 +4,7 @@ class Conectar{
         try{
             $conexion=new PDO("mysql:host=localhost; dbname=pruebas","root","francisco");
             $conexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-            $conexion->exec("SET CHARACTER SET UTF8");
+            //$conexion->exec("SET CHARACTER SET UTF8");
             return $conexion;
 
         }catch(Exception $e){
