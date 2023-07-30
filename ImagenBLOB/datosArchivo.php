@@ -12,7 +12,7 @@ if($tamannoArchivo<=10000000){
         move_uploaded_file($_FILES["Archivo"]["tmp_name"],$carpetaDestino.$nombreArchivo);
    
 }else{
-    echo"<br>Tamaño excesivo, solo se admiten Archivoes menores a 1Mb";
+    echo"<br>Tamaño excesivo, solo se admiten Archivos menores a 1Mb";
 }
 
 require ("Conexion.php");
@@ -24,12 +24,12 @@ fclose($archivoObjetivo);
 
 
 
-$sql="INSERT INTO archivo (nombre, tipo, contenido) VALUES('$nombreArchivo','$tipoArchivo','$tipoArchivo')";
+$sql="INSERT INTO archivos (nombre, tipo, contenido) VALUES('$nombreArchivo','$tipoArchivo','$tipoArchivo')";
 $resultado=$base->query($sql);
 
 if($resultado->rowCount()>0){
-    echo"Registro Insertado";
+    echo"<br> Registro Insertado";
 }else{
-    echo"Nose ha podido insertar el registro";
+    echo"<br> No se ha podido insertar el registro";
 }
 ?>
