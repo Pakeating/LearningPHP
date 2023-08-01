@@ -9,7 +9,7 @@
     <?php
         $conexion=mysqli_connect("localhost","root","francisco","blogphp");
         if(!$conexion){
-            echo "Error conectando a la base de datos: "- mysqli_error();
+            echo "Error conectando a la base de datos: ". mysqli_error();
             exit();
         }
         if($_FILES["imagen"]["error"]){
@@ -47,6 +47,8 @@
         $resultado=mysqli_query($conexion,$consulta);
         mysqli_close($conexion);
         echo"<br> Se ha agregado el comentario con exito. <br><br>";
+        echo"<a href='index.php'> Ir al blog</a><br>";
+        echo"<a href='Formulario.php'> Añadir otra entrada</a><br>";
     ?>
 </body>
 </html>
